@@ -105,6 +105,7 @@ namespace ProyectoLibros
                 var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
                 config.IncludeXmlComments(xmlPath);
             });
+            services.AddApplicationInsightsTelemetry();
 
         }
 
