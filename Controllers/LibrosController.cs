@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -14,6 +16,7 @@ namespace ProyectoLibros.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     public class LibrosController : ControllerBase
     {
         private readonly ApplicationDbContext context;
@@ -26,7 +29,7 @@ namespace ProyectoLibros.Controllers
         }
 
         // GET: api/Libros
-        [HttpGet]
+        [HttpGet(Name = "ObtenerLibros")]
         public async Task<ActionResult<IEnumerable<Libro>>> ObtenerLibros()
         {
             return await context.Libros.Include(x => x.Autor).ToListAsync();
