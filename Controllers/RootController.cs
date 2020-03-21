@@ -18,7 +18,7 @@ namespace ProyectoLibros.Controllers
             List<Enlace> enlaces = new List<Enlace>();
 
             // Aquí colocamos los links
-            enlaces.Add(new Enlace(href: Url.Link("GetRoot", new { }), rel: "self", metodo: "GET"));
+            enlaces.Add(new Enlace(href: Url.Link("GetRoot", new { }), rel: "Self", metodo: "GET"));
             enlaces.Add(new Enlace(href: Url.Link("ObtenerAutores", new { }), rel: "autores", metodo: "GET"));
             enlaces.Add(new Enlace(href: Url.Link("CrearAutor", new { }), rel: "crear-autor", metodo: "POST"));
             enlaces.Add(new Enlace(href: Url.Link("ObtenerLibros", new { }), rel: "valores", metodo: "GET"));
